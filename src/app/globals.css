@@ -828,9 +828,10 @@ main {
 }
 
 .project-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.65rem;
+  width: min(100%, 12rem);
   margin-top: 2rem;
 }
 
@@ -840,8 +841,9 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  width: 100%;
   min-height: 2.85rem;
-  padding: 0 0.85rem;
+  /* padding: 0 0.85rem; */
   border: 1px solid rgba(55, 235, 229, 0.22);
   border-radius: 0.25rem;
   background: rgba(55, 235, 229, 0.055);
@@ -1446,6 +1448,7 @@ footer a:focus-visible {
 
   .project-actions {
     display: grid;
+    width: 100%;
   }
 
   .project-actions a,

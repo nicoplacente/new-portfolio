@@ -29,14 +29,21 @@ const projects = [
     previewUrl: "https://codeluxe.tech/",
   },
   {
-    name: "Alquirap",
-    type: "Producto inmobiliario",
-    image: "/projects/alquirap.webp",
+    name: "Franco Bertello Store",
+    type: "Streaming Store",
+    image: "/projects/fb-store.webp",
     description:
-      "Plataforma de alquiler de herramientas y maquinaria en Coronel Suárez. El sitio mejora la exploración con carrusel, paginación y búsqueda, y se complementa con un CRM robusto para administrar todo la empresa.",
-    stack: ["UX/UI", "Next.js", "Landing", "CRM", "SQLite"],
-    previewUrl: "https://alquirap.com/",
-    githubUrl: "https://github.com/nicoplacente/alquirap",
+      "Plataforma de interacción para streaming desarrollada para Franco Bertello. Integra una extensión conectada a Kick, sistema de puntos y recompensas, rankings, rachas, sorteos, tienda y múltiples herramientas interactivas en tiempo real, gestionadas desde un dashboard de administración.",
+    stack: [
+      "Extensión",
+      "Next.js",
+      "PostgreSQL",
+      "Web Sockets",
+      "Store",
+      "Recompensas",
+    ],
+    githubUrl: "https://github.com/nicoplacente/client-fb-store",
+    previewUrl: "https://francobertello-store.codeluxe.tech/",
   },
   {
     name: "WK Services",
@@ -48,19 +55,19 @@ const projects = [
     previewUrl: "https://wkservices.vercel.app/",
     githubUrl: "https://github.com/nicoplacente/wkservices-landing",
   },
-  // {
-  //   name: "",
-  //   type: "",
-  //   image: "/projects/.webp",
-  //   description:
-  //     "",
-  //   stack: [""],
-  //   githubUrl: "",
-  //   previewUrl: "",
-  // },
+  {
+    name: "Alquirap",
+    type: "Alquiler de herramientas",
+    image: "/projects/alquirap.webp",
+    description:
+      "Plataforma de alquiler de herramientas y maquinaria en Coronel Suárez. El sitio mejora la exploración con carrusel, paginación y búsqueda, y se complementa con un CRM robusto para administrar todo la empresa.",
+    stack: ["UX/UI", "Next.js", "Landing", "CRM", "SQLite"],
+    previewUrl: "https://alquirap.com/",
+    githubUrl: "https://github.com/nicoplacente/alquirap",
+  },
   {
     name: "Los Robles",
-    type: "Identidad institucional",
+    type: "Organización de eventos",
     image: "/projects/los-robles.webp",
     description:
       "Empresa dedicada a la organización de eventos. Integramos una galería interactiva. Además, desarrollamos un script personalizado para la consola de Facebook, automatizando la descarga de imágenes desde publicaciones específicas, facilitando la actualización de nuevo contenido visual.",
@@ -70,7 +77,7 @@ const projects = [
   },
   {
     name: "Auténticos",
-    type: "Experiencia editorial",
+    type: "Mentorías",
     image: "/projects/autenticos.webp",
     description:
       "Primer proyecto desarrollado para la venta y gestión de mentorías de Laureano Gieco, que incluyó funcionalidades clave como autenticación de usuarios, gestión de roles, pasarela de pagos, dashboard administrativo y optimización SEO. (Actualmente Laureano Gieco no se dedica a la venta de mentorías por lo que solo esta disponible la UI)",
@@ -242,7 +249,7 @@ export default function Home() {
             </span>
           }
           badge={<MacbookBadge />}
-          src="/projects/codeluxe.webp"
+          src="/fondo-pantalla.webp"
           imageAlt="Captura del proyecto Codeluxe presentada en una MacBook"
           showGradient={false}
         />
