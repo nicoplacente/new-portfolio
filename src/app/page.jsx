@@ -136,6 +136,9 @@ const skills = [
   "API REST",
   "n8n",
   "Agentes de IA",
+  "Meta Ads",
+  "Publicidad Digital",
+  "Gestión de Redes",
 ];
 
 const whatsappUrl = "https://wa.me/5492926402409";
