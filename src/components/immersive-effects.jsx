@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function ImmersiveEffects() {
+export function ImmersiveEffects({ cursorOnly = false }) {
   const cursorRef = useRef(null);
   const dotRef = useRef(null);
   const spotlightRef = useRef(null);
@@ -21,8 +21,8 @@ export function ImmersiveEffects() {
 
     const cursor = cursorRef.current;
     const dot = dotRef.current;
-    const spotlight = spotlightRef.current;
-    const canvas = canvasRef.current;
+    const spotlight = cursorOnly ? null : spotlightRef.current;
+    const canvas = cursorOnly ? null : canvasRef.current;
     const context = canvas?.getContext("2d");
     let animationFrame;
     let mouseX = window.innerWidth / 2;
@@ -30,14 +30,6 @@ export function ImmersiveEffects() {
     let cursorX = mouseX;
     let cursorY = mouseY;
     let particles = [];
-    let isCanvasPaused = false;
-
-    const projectsSection = document.getElementById("proyectos");
-    const projectsObserver = projectsSection
-      ? new IntersectionObserver(([entry]) => {
-          isCanvasPaused = entry.isIntersecting;
-        })
-      : null;
 
     const resizeCanvas = () => {
       if (!canvas || !context) return;
@@ -91,7 +83,7 @@ export function ImmersiveEffects() {
         cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
       }
 
-      if (canvas && context && !reducedMotion && !isCanvasPaused) {
+      if (canvas && context && !reducedMotion) {
         context.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
         particles.forEach((particle) => {
@@ -125,24 +117,33 @@ export function ImmersiveEffects() {
     window.addEventListener("resize", resizeCanvas, { passive: true });
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     document.addEventListener("pointerover", onPointerOver, { passive: true });
-    if (projectsSection) projectsObserver?.observe(projectsSection);
     animationFrame = window.requestAnimationFrame(render);
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
-      projectsObserver?.disconnect();
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerover", onPointerOver);
     };
-  }, []);
+  }, [cursorOnly]);
 
   return (
     <>
-      <canvas ref={canvasRef} className="particle-canvas" aria-hidden="true" />
-      <div ref={spotlightRef} className="pointer-spotlight" aria-hidden="true" />
-      <div ref={cursorRef} className="custom-cursor" aria-hidden="true" />
-      <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
+      {cursorOnly ? (
+        <>
+          <div ref={cursorRef} className="custom-cursor" aria-hidden="true" />
+          <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
+        </>
+      ) : (
+        <>
+          <canvas ref={canvasRef} className="particle-canvas" aria-hidden="true" />
+          <div
+            ref={spotlightRef}
+            className="pointer-spotlight"
+            aria-hidden="true"
+          />
+        </>
+      )}
     </>
   );
 }

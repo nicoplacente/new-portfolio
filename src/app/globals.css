@@ -202,7 +202,7 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 2147483647;
   pointer-events: none;
   will-change: transform;
 }
@@ -467,6 +467,7 @@ main {
 
 .hero h1 span {
   display: block;
+  padding-bottom: 0.08em;
   color: transparent;
   background: linear-gradient(
     100deg,

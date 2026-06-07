@@ -178,7 +178,7 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src, imageAlt }) => {
           alt={imageAlt}
           fill
           sizes="(min-width: 768px) 32rem, 18rem"
-          className="absolute inset-0 h-full w-full rounded-lg object-cover object-top-left"
+          className="absolute inset-0 h-full w-full rounded-lg object-cover object-center"
         />
       </motion.div>
     </div>
@@ -610,7 +610,7 @@ export const OptionKey = ({ className }) => {
 const AceternityLogo = () => {
   return (
     <span className="inline-flex h-3 w-3 items-center justify-center text-[8px] font-bold text-white">
-      N
+      Nico Placente
     </span>
   );
 };
