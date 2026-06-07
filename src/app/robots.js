@@ -1,9 +1,12 @@
+import { siteConfig } from "@/lib/site";
+
 export default function robots() {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://nicoplacente.codeluxe.tech/sitemap.xml",
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

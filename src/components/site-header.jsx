@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
+import { siteConfig } from "@/lib/site";
 
 const navItems = [
   { href: "#experiencia", label: "Experiencia" },
@@ -11,8 +12,6 @@ const navItems = [
   { href: "#sobre-mi", label: "Sobre mí" },
   { href: "#contacto", label: "Contacto" },
 ];
-
-const whatsappUrl = "https://wa.me/5492926402409";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,10 +62,11 @@ export function SiteHeader() {
 
       <div className="header-actions">
         <a
-          href={whatsappUrl}
+          href={siteConfig.whatsapp}
           className="connect-button"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
+          aria-label="Conectar por WhatsApp (abre en una pestaña nueva)"
         >
           <span>Conectar</span>
           <IconBrandWhatsapp size={16} />

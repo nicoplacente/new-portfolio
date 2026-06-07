@@ -2,7 +2,6 @@ import Image from "next/image";
 import {
   ArrowDownRight,
   ArrowUpRight,
-  Code2,
   MapPin,
   Sparkles,
 } from "lucide-react";
@@ -17,6 +16,7 @@ import {
 import { ImmersiveEffects } from "@/components/immersive-effects";
 import { SiteHeader } from "@/components/site-header";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
+import { siteConfig } from "@/lib/site";
 
 const projects = [
   {
@@ -60,7 +60,7 @@ const projects = [
     type: "Alquiler de herramientas",
     image: "/projects/alquirap.webp",
     description:
-      "Plataforma de alquiler de herramientas y maquinaria en Coronel Suárez. El sitio mejora la exploración con carrusel, paginación y búsqueda, y se complementa con un CRM robusto para administrar todo la empresa.",
+      "Plataforma de alquiler de herramientas y maquinaria en Coronel Suárez. El sitio mejora la exploración con carrusel, paginación y búsqueda, y se complementa con un CRM robusto para administrar toda la empresa.",
     stack: ["UX/UI", "Next.js", "Landing", "CRM", "SQLite"],
     previewUrl: "https://alquirap.com/",
     githubUrl: "https://github.com/nicoplacente/alquirap",
@@ -80,7 +80,7 @@ const projects = [
     type: "Mentorías",
     image: "/projects/autenticos.webp",
     description:
-      "Primer proyecto desarrollado para la venta y gestión de mentorías de Laureano Gieco, que incluyó funcionalidades clave como autenticación de usuarios, gestión de roles, pasarela de pagos, dashboard administrativo y optimización SEO. (Actualmente Laureano Gieco no se dedica a la venta de mentorías por lo que solo esta disponible la UI)",
+      "Primer proyecto desarrollado para la venta y gestión de mentorías de Laureano Gieco. Incluyó autenticación de usuarios, gestión de roles, pasarela de pagos, panel administrativo y optimización SEO. Actualmente, solo está disponible la interfaz.",
     stack: ["UX/UI", "Aplicación Web", "Pasarelas de pago", "React", "MongoDB"],
     previewUrl: "https://autenticos.onrender.com/",
   },
@@ -141,7 +141,38 @@ const skills = [
   "Gestión de Redes",
 ];
 
-const whatsappUrl = "https://wa.me/5492926402409";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      image: `${siteConfig.url}/nicoplacente.webp`,
+      jobTitle: "Full Stack Developer",
+      email: `mailto:${siteConfig.email}`,
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "Buenos Aires",
+        addressCountry: "AR",
+      },
+      sameAs: [siteConfig.github, siteConfig.linkedin],
+      knowsAbout: skills,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: `Portfolio de ${siteConfig.name}`,
+      description: siteConfig.description,
+      inLanguage: "es-AR",
+      author: {
+        "@id": `${siteConfig.url}/#person`,
+      },
+    },
+  ],
+};
 
 function SectionLabel({ index, children }) {
   return (
@@ -155,10 +186,11 @@ function SectionLabel({ index, children }) {
 function MacbookBadge() {
   return (
     <div className="macbook-badge" aria-hidden="true">
-      {/* <Code2 size={18} strokeWidth={1.8} /> */}
-      <img
+      <Image
         src="/nicoplacente-pixelart.webp"
-        alt="Nico Placente estilo PixelArt"
+        alt=""
+        width={40}
+        height={40}
       />
     </div>
   );
@@ -166,12 +198,19 @@ function MacbookBadge() {
 
 export default function Home() {
   return (
-    <main>
-      <ImmersiveEffects />
-
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       <SiteHeader />
 
-      <section id="inicio" className="hero">
+      <main id="contenido-principal" tabIndex="-1">
+        <ImmersiveEffects />
+
+        <section id="inicio" className="hero">
         <div className="hero-signal" aria-hidden="true">
           <span />
           <span />
@@ -195,7 +234,7 @@ export default function Home() {
               Explorar proyectos
               <ArrowDownRight size={17} />
             </a>
-            <a href="/cv.pdf" className="text-action">
+            <a href="/cv.pdf" className="text-action" download>
               Descargar CV
               <ArrowUpRight size={16} />
             </a>
@@ -227,7 +266,7 @@ export default function Home() {
                   href={item.certificateUrl}
                   className="certificate-link experience-certificate"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   <IconFileCertificate size={17} />
                   Ver certificado
@@ -241,7 +280,7 @@ export default function Home() {
 
       <section
         className="macbook-section"
-        aria-label="Presentación de proyectos"
+        aria-label="Presentación visual de proyectos"
       >
         <MacbookScroll
           title={
@@ -298,7 +337,8 @@ export default function Home() {
                     <a
                       href={project.githubUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
+                      aria-label={`Ver el repositorio de ${project.name} en GitHub (abre en una pestaña nueva)`}
                     >
                       <IconBrandGithub size={17} />
                       Repositorio
@@ -308,7 +348,8 @@ export default function Home() {
                     <a
                       href={project.previewUrl}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
+                      aria-label={`Ver ${project.name} (abre en una pestaña nueva)`}
                     >
                       <IconExternalLink size={17} />
                       Vista previa
@@ -329,6 +370,7 @@ export default function Home() {
       <section id="educacion" className="education-section">
         <div className="section-shell">
           <SectionLabel index="03">Educación y evolución</SectionLabel>
+          <h2 className="sr-only">Educación y formación continua</h2>
           <div className="education-grid">
             {education.map((item) => (
               <article key={item.title}>
@@ -408,12 +450,17 @@ export default function Home() {
         <div className="section-shell contact-content">
           <p>¿TENÉS UNA IDEA AMBICIOSA?</p>
           <h2>Hagamos algo difícil de ignorar.</h2>
-          <a href={whatsappUrl} target="_blank" rel="noreferrer">
+          <a
+            href={siteConfig.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Iniciar una conversación por WhatsApp (abre en una pestaña nueva)"
+          >
             Iniciar una conversación
             <IconBrandWhatsapp size={22} />
           </a>
           <div className="contact-links">
-            <a href="mailto:nicolasplacente@gmail.com" className="contact-link">
+            <a href={`mailto:${siteConfig.email}`} className="contact-link">
               <span>
                 <IconMail size={20} />
               </span>
@@ -424,10 +471,11 @@ export default function Home() {
               <ArrowUpRight size={17} />
             </a>
             <a
-              href="https://github.com/nicoplacente"
+              href={siteConfig.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="contact-link"
+              aria-label="Explorar el perfil de Nicolás Placente en GitHub (abre en una pestaña nueva)"
             >
               <span>
                 <IconBrandGithub size={20} />
@@ -439,10 +487,11 @@ export default function Home() {
               <ArrowUpRight size={17} />
             </a>
             <a
-              href="https://ar.linkedin.com/in/nicoplacente"
+              href={siteConfig.linkedin}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="contact-link"
+              aria-label="Conectar con Nicolás Placente en LinkedIn (abre en una pestaña nueva)"
             >
               <span>
                 <IconBrandLinkedin size={20} />
@@ -455,13 +504,15 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+        </section>
+
+      </main>
 
       <footer>
         <span>NICOLÁS PLACENTE © {new Date().getFullYear()}</span>
         <span>FULL STACK DEVELOPER · PRODUCT ORIENTED</span>
         <a href="#inicio">VOLVER ARRIBA ↑</a>
       </footer>
-    </main>
+    </>
   );
 }

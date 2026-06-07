@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,13 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://nicoplacente.codeluxe.tech"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Nicolás Placente | Full Stack Developer",
-    template: "%s | Nicolás Placente",
+    default: siteConfig.title,
   },
-  description:
-    "Portfolio de Nicolás Placente, desarrollador Full Stack especializado en productos web, rendimiento, SEO técnico y automatización con IA.",
+  description: siteConfig.description,
   keywords: [
     "Nicolás Placente",
     "Full Stack Developer",
@@ -29,44 +28,65 @@ export const metadata = {
     "SEO técnico",
     "desarrollo web",
   ],
-  authors: [{ name: "Nicolás Placente" }],
-  creator: "Nicolás Placente",
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "technology",
+  referrer: "origin-when-cross-origin",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Nicolás Placente | Full Stack Developer",
-    description:
-      "Desarrollo productos web rápidos, claros y orientados a resultados.",
-    url: "https://nicoplacente.codeluxe.tech",
+    title: siteConfig.title,
+    description: siteConfig.shortDescription,
+    url: siteConfig.url,
     siteName: "Portfolio de Nicolás Placente",
     images: [
       {
-        url: "/nicoplacente-pixelart-metadata.png",
+        url: siteConfig.socialImage,
         width: 400,
         height: 400,
-        alt: "Nicolás Placente",
+        alt: "Retrato ilustrado de Nicolás Placente",
       },
     ],
-    locale: "es_AR",
+    locale: siteConfig.locale,
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Nicolás Placente | Full Stack Developer",
-    description:
-      "Productos web, SEO técnico, rendimiento y automatización con IA.",
-    images: ["/nicoplacente-pixelart-metadata.png"],
+    card: "summary",
+    title: siteConfig.title,
+    description: siteConfig.shortDescription,
+    images: [siteConfig.socialImage],
   },
   alternates: {
     canonical: "/",
+    languages: {
+      "es-AR": "/",
+      "x-default": "/",
+    },
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="es"
+      lang="es-AR"
       className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <a href="#contenido-principal" className="skip-link">
+          Saltar al contenido principal
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
