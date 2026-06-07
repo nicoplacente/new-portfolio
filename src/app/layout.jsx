@@ -39,7 +39,7 @@ export const metadata = {
     siteName: "Portfolio de Nicolás Placente",
     images: [
       {
-        url: "/nicoplacente.png",
+        url: "/nicoplacente-pixelart-metadata.png",
         width: 400,
         height: 400,
         alt: "Nicolás Placente",
@@ -53,7 +53,7 @@ export const metadata = {
     title: "Nicolás Placente | Full Stack Developer",
     description:
       "Productos web, SEO técnico, rendimiento y automatización con IA.",
-    images: ["/nicoplacente.png"],
+    images: ["/nicoplacente-pixelart-metadata.png"],
   },
   alternates: {
     canonical: "/",

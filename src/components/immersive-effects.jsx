@@ -30,6 +30,14 @@ export function ImmersiveEffects() {
     let cursorX = mouseX;
     let cursorY = mouseY;
     let particles = [];
+    let isCanvasPaused = false;
+
+    const projectsSection = document.getElementById("proyectos");
+    const projectsObserver = projectsSection
+      ? new IntersectionObserver(([entry]) => {
+          isCanvasPaused = entry.isIntersecting;
+        })
+      : null;
 
     const resizeCanvas = () => {
       if (!canvas || !context) return;
@@ -83,7 +91,7 @@ export function ImmersiveEffects() {
         cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
       }
 
-      if (canvas && context && !reducedMotion) {
+      if (canvas && context && !reducedMotion && !isCanvasPaused) {
         context.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
         particles.forEach((particle) => {
@@ -117,10 +125,12 @@ export function ImmersiveEffects() {
     window.addEventListener("resize", resizeCanvas, { passive: true });
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     document.addEventListener("pointerover", onPointerOver, { passive: true });
+    if (projectsSection) projectsObserver?.observe(projectsSection);
     animationFrame = window.requestAnimationFrame(render);
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
+      projectsObserver?.disconnect();
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerover", onPointerOver);
