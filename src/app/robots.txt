@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://nicoplacente.codeluxe.tech/sitemap.xml
-Host: https://nicoplacente.codeluxe.tech
