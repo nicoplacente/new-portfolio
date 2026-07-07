@@ -41,6 +41,23 @@ const projects = [
     previewUrl: "https://francobertello-store.codeluxe.tech/",
   },
   {
+    name: "StreamCore",
+    type: "Diseñado para kick",
+    image: "/projects/streamcore.webp",
+    description:
+      "Recompensas, apuestas, overlays y herramientas de control para transformar tu stream de Kick en una experiencia más participativa.",
+    stack: [
+      "Extensión",
+      "Next.js",
+      "PostgreSQL",
+      "Web Sockets",
+      "Desktop & Web",
+      "Recompensas",
+    ],
+    githubUrl: "https://github.com/nicoplacente/stream-core",
+    previewUrl: "https://streamcore.codeluxe.tech/",
+  },
+  {
     name: "WK Services",
     type: "Servicios profesionales",
     image: "/projects/wkservices.webp",
