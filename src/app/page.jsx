@@ -58,6 +58,22 @@ const projects = [
     previewUrl: "https://streamcore.codeluxe.tech/",
   },
   {
+    name: "Cuida",
+    type: "Cuidado familiar",
+    image: "/projects/cuida.webp",
+    description:
+      "App gratuita para organizar el cuidado de personas con demencia, Alzheimer, adultos mayores o cualquier condición que requiera acompañamiento constante. La aplicación permite que una familia se registre, centralice información importante y mantenga a todos al tanto de medicamentos, eventos, tareas, nuevos síntomas, comportamientos y cambios relevantes del día a día.",
+    stack: [
+      "Tailwind",
+      "Next.js",
+      "PostgreSQL",
+      "Mobile & Web",
+      "React Native",
+    ],
+    githubUrl: "https://github.com/nicoplacente/cuida",
+    previewUrl: "https://cuida.codeluxe.tech/",
+  },
+  {
     name: "WK Services",
     type: "Servicios profesionales",
     image: "/projects/wkservices.webp",
