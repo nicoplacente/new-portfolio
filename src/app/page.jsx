@@ -62,7 +62,7 @@ const projects = [
     type: "Cuidado familiar",
     image: "/projects/cuida.webp",
     description:
-      "App gratuita para organizar el cuidado de personas con demencia, Alzheimer, adultos mayores o cualquier condición que requiera acompañamiento constante. La aplicación permite que una familia se registre, centralice información importante y mantenga a todos al tanto de medicamentos, eventos, tareas, nuevos síntomas, comportamientos y cambios relevantes del día a día.",
+      "App gratuita para organizar el cuidado de personas con demencia, Alzheimer, o cualquier condición que requiera acompañamiento. La aplicación permite que una familia se registre, centralice información importante y mantenga a todos al tanto de medicamentos, eventos, tareas, historia clínica, anamnesis, síntomas, comportamientos y juegos de estimulación cognitiva.",
     stack: [
       "Tailwind",
       "Next.js",
