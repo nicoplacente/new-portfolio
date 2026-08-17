@@ -37,7 +37,6 @@ const projects = [
       "Store",
       "Recompensas",
     ],
-    githubUrl: "https://github.com/nicoplacente/client-fb-store",
     previewUrl: "https://francobertello-store.codeluxe.tech/",
   },
   {
@@ -75,7 +74,6 @@ const projects = [
       "Plataforma integral para una empresa dedicada a la reparación de electrodomésticos, venta de repuestos y materiales eléctricos. La solución combinó presencia comercial, flujo de reseñas, datos de contacto y un sistema administrativo con login seguro.",
     stack: ["Next.js", "Landing", "CRM", "Conversión", "PostgreSQL"],
     previewUrl: "https://wkservices.vercel.app/",
-    githubUrl: "https://github.com/nicoplacente/wkservices-landing",
   },
   {
     name: "Alquirap",
@@ -85,7 +83,6 @@ const projects = [
       "Plataforma de alquiler de herramientas y maquinaria en Coronel Suárez. El sitio mejora la exploración con carrusel, paginación y búsqueda, y se complementa con un CRM robusto para administrar toda la empresa.",
     stack: ["UX/UI", "Next.js", "Landing", "CRM", "SQLite"],
     previewUrl: "https://alquirap.com/",
-    githubUrl: "https://github.com/nicoplacente/alquirap",
   },
   {
     name: "Los Robles",
@@ -94,7 +91,6 @@ const projects = [
     description:
       "Empresa dedicada a la organización de eventos. Integramos una galería interactiva. Además, desarrollamos un script personalizado para la consola de Facebook, automatizando la descarga de imágenes desde publicaciones específicas, facilitando la actualización de nuevo contenido visual.",
     stack: ["Conversión", "Galería de imágenes", "Eventos", "Astro"],
-    githubUrl: "https://github.com/NTiago-s/robles-eventos",
     previewUrl: "https://los-robles-eventos.com/",
   },
   {
