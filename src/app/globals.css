@@ -868,7 +868,7 @@ main {
 
 .project-details h3 {
   margin: 0.8rem 0 1.1rem;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: clamp(2rem, 4vw, 2.9rem);
   line-height: 0.95;
 }
 

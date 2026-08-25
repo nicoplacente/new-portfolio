@@ -16,10 +16,10 @@ import { siteConfig } from "@/lib/site";
 const projects = [
   {
     name: "Codeluxe",
-    type: "Agencia digital",
+    type: "Software & Digital Solutions",
     image: "/projects/codeluxe.webp",
     description:
-      "Una plataforma comercial para posicionar servicios digitales, captar clientes y comunicar una propuesta técnica clara.",
+      "Página web oficial de Codeluxe, mi propia empresa de soluciones digitales. Diseñé y desarrollé la plataforma para presentar nuestros servicios de desarrollo web, aplicaciones a medida, automatización con IA y marketing digital, priorizando una experiencia moderna, rendimiento, SEO y conversión.",
     stack: ["Next.js", "Emprendimiento", "Branding"],
     previewUrl: "https://codeluxe.tech/",
   },
