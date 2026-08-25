@@ -67,6 +67,15 @@ const projects = [
     previewUrl: "https://cuida.codeluxe.tech/",
   },
   {
+    name: "KC Interiorismo",
+    type: "Landing profesional",
+    image: "/projects/kc-interiorismo.webp",
+    description:
+      "Página web profesional para una diseñadora de interiores, desarrollado para presentar sus servicios, proyectos destacados, experiencia y formación en una experiencia visual elegante y cuidada, funcionando a la vez como portfolio y canal de captación de nuevos clientes.",
+    stack: ["Tailwind", "Next.js", "GSAP"],
+    previewUrl: "https://kcinteriorismo.codeluxe.tech/",
+  },
+  {
     name: "WK Services",
     type: "Servicios profesionales",
     image: "/projects/wkservices.webp",
@@ -74,6 +83,15 @@ const projects = [
       "Plataforma integral para una empresa dedicada a la reparación de electrodomésticos, venta de repuestos y materiales eléctricos. La solución combinó presencia comercial, flujo de reseñas, datos de contacto y un sistema administrativo con login seguro.",
     stack: ["Next.js", "Landing", "CRM", "Conversión", "PostgreSQL"],
     previewUrl: "https://wkservices.vercel.app/",
+  },
+  {
+    name: "CaprichoSab",
+    type: "Landing page",
+    image: "/projects/caprichosab.webp",
+    description:
+      "Página web para un emprendimiento de repostería y comidas caseras, diseñado como catálogo digital para presentar sus productos de forma atractiva y facilitar la realización de pedidos directamente por WhatsApp.",
+    stack: ["Tailwind", "Next.js"],
+    previewUrl: "https://caprichosab.vercel.app/",
   },
   {
     name: "Alquirap",
