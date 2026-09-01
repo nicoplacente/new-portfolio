@@ -85,13 +85,13 @@ const projects = [
     previewUrl: "https://wkservices.vercel.app/",
   },
   {
-    name: "CaprichoSab",
+    name: "Caprichos Sabores",
     type: "Landing page",
-    image: "/projects/caprichosab.webp",
+    image: "/projects/caprichosabores.webp",
     description:
       "Página web para un emprendimiento de repostería y comidas caseras, diseñado como catálogo digital para presentar sus productos de forma atractiva y facilitar la realización de pedidos directamente por WhatsApp.",
     stack: ["Tailwind", "Next.js"],
-    previewUrl: "https://caprichosab.vercel.app/",
+    previewUrl: "https://caprichosabores.vercel.app/",
   },
   {
     name: "Alquirap",
